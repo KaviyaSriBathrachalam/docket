@@ -6,4 +6,4 @@ docket application is used to track individual financial assets.
 
 /github subscribe baraneetharan/docket reviews comments branches commits:all
 
-github heroku integration
+github heroku integration enable automatic deploys
