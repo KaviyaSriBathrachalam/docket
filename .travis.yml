@@ -27,7 +27,7 @@ notifications:
     slack: docket-workspace:wLFGj3Bp0Wdsb5qw82bYuqoO
 
 after_success:
-- docker login -u baraneetharan@live.com -p Baranee@123
+- docker login -u baraneetharan -p Baranee@123
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
   ; fi`
 - export IMAGE_NAME=baraneetharan/docket
