@@ -27,13 +27,15 @@ notifications:
     slack: docket-workspace:wLFGj3Bp0Wdsb5qw82bYuqoO
 
 after_success:
-- docker login -u baraneetharan -p Baranee@123
-- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
+  - docker login -u baraneetharan -p Baranee@123
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH
   ; fi`
-- export IMAGE_NAME=baraneetharan/docket
-- docker build -t $IMAGE_NAME
-- docker tag $IMAGE_NAME
-- docker push $IMAGE_NAME    
+  - export REPO=baraneetharan / docket 
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO    
 
 deploy:
   provider: heroku
