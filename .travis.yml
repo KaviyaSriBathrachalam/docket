@@ -1,0 +1,8 @@
+language: java
+jdk: oraclejdk8
+ 
+script:
+- ./mvnw clean install -B
+
+notifications:
+    slack: docket-workspace:wLFGj3Bp0Wdsb5qw82bYuqoO

@@ -18,3 +18,7 @@ Give this command
 Heroku ChatOps APP [7:33 PM]
 docket is configured
 Pipeline events will be routed to #docketcomm
+
+Travis CI integrated
+Jacoco plugin added
+Travis CI Slack integrated
