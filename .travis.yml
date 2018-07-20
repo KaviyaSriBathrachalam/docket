@@ -1,5 +1,8 @@
+sudo: required
 language: java
 jdk: oraclejdk8
+services:
+  - docker
 
 addons:
   sonarcloud:
@@ -15,10 +18,10 @@ script:
 - ./mvnw clean install -B
 - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 
-sudo: required
- 
-services:
-  - docker
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
 
 notifications:
     slack: docket-workspace:wLFGj3Bp0Wdsb5qw82bYuqoO
@@ -35,4 +38,4 @@ after_success:
 deploy:
   provider: heroku
   api_key: e091f2d5-df18-489b-8da6-db8735cd8df8
-  app: docket-docker
+  # app: docket-docker
